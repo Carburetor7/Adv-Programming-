@@ -1,0 +1,94 @@
+/* === Fonts & Base === */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #f9f9f9;
+  color: #1a1a1a;
+}
+
+/* === Header === */
+.team-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff);
+  color: #008c7e;
+  border-bottom: 4px solid #00bfa6;
+  box-shadow: 0 5px 15px rgba(0, 191, 166, 0.2);
+}
+
+.team-header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #b2fdf6;
+}
+
+.team-header p {
+  font-size: 1.2em;
+  color: #00665a;
+}
+
+/* === Team Section === */
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.member-card {
+  border: 3px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #f1f1f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: scale(1.05);
+}
+
+.member-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid #00bfa6;
+  filter: grayscale(10%) contrast(1.05);
+}
+
+.member-card p {
+  font-size: 1.1em;
+  padding: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* === Info Section === */
+.team-info {
+  background: #f0f0f0;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-text {
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team-text h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #00bfa6;
+  text-shadow: 0 0 6px #b2fdf6;
+}
+
+.team-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
