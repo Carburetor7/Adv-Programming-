@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDLINE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'poppins';
+        }
+        /* header and navbar */
+        .header {
+            position: fixed;
+            width: 100%;
+            background-color: #FFE4C4;
+            padding: 20px 50px;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+        
+        .logo a {
+            font-size: 35px; 
+            color: black; 
+            text-decoration: none; 
+            font-family: 'Orbitron';
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            font-family: poppins;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            position: relative;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: -5px; 
+            width: 100%; 
+            height: 2px; 
+            background: black; 
+            transform: scaleX(0); 
+            transition: transform 0.3s ease; 
+        }
+        
+        .nav-links a:hover::after {
+            transform: scaleX(1); 
+        }
+         /* search  */
+        .search-container {
+            display: flex; 
+        }
+        
+        .search-input {
+            padding: 10px;
+            border: 1px solid #ccc; 
+            border-radius: 5px 0 0 5px; 
+            width: 100px; 
+            height: 20px;
+        }
+        
+        .search-button {
+            padding: 5px 5px;
+            border: none; 
+            background-color: #A0522D; 
+            color: white; 
+            border-radius: 0 5px 5px 0; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        }
+        
+        .search-button:hover {
+            background-color: #d18a00; 
+        }
+
+        /* cart   */
+
+        .cart {
+            background-color: transparent;
+            color:black;
+            border: 8px  grey;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cart:hover {
+            background-color: lightslategray; 
+        }
+
+
+
+
+
+        /* login  */
+        
+        
+        .login-button {
+            background-color: transparent; 
+            color: black; 
+            border: 3px round grey; 
+            border-radius: 20px; 
+            padding: 5px 5px; 
+            font-size: 15px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
+        
+        
+        
+        .login-button:hover {
+            background-color: lightslategray; 
+        }
+
+        main {
+            padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 81px;
+        }
+
+         /*  Footer */
+        
+         .footer {
+            background-color: #444; 
+            color: #fff; 
+            padding: 20px 50px; 
+            width: 100%; 
+        }
+        
+        .footer-content {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .copyright {
+            margin: 0; 
+        }
+
+        /* nav links in footer */
+
+        .footer-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+          }
+          
+          .footer-nav-links li {
+            margin: 0 15px;
+          }
+          
+          .footer-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+          }
+          
+          .footer-nav-links a:hover {
+            color: lightgreen;
+          }
+        /* follow us */
+        .follow-us {
+            text-align: right; 
+        }
+        
+        .follow-us p {
+            margin: 0; 
+            font-weight: bold; 
+            margin-bottom: 20px;
+        }
+        
+        .socials {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: white; 
+            padding: 5px;
+            
+            transition: background-color 0.3s ease; 
+        }
+        
+        .social-icon:hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <!--Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo"><a href="#">RedLineX</a></div>
+            <ul class="nav-links">
+                <li><a href="/Pages/index.html">HOME</a></li>
+                <li><a href="/Pages/product.html" target="_blank">PRODUCTS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#aboutus">ABOUT US</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
+                <li class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button">Search</button>
+                </li>
+                <li><button class="cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button></li>
+               <li><button class="login-button">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i> 
+                </button></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main Content -->
+  <main>
+    <header class="team-header">
+      <h1>About Us</h1>
+      <p>Need a spare? We got spare parts for you.</p>
+    </header>
+
+    <section class="team-members">
+      <div class="member-card pink">
+        <img src="/Images/komal.jpg" alt="Member 1">
+        <p>Komal Bidari</p>
+      </div>
+      <div class="member-card blue">
+        <img src="/Images/Rupesh Photo.jpg" alt="Member 2">
+        <p>Rupesh Pudasaini</p>
+      </div>
+      <div class="member-card purple">
+        <img src="pikachu.jpeg" alt="Member 3">
+        <p>Sarwogya Bikram Rana</p>
+      </div>
+      <div class="member-card yellow">
+        <img src="e33c2fa94c03efa06678116f80d62d0d_708x.webp" alt="Member 4">
+        <p>Prajun Jung Thapa</p>
+      </div>
+    </section>
+
+    <section class="team-info">
+      <div class="team-text">
+        <h2>From the streets of Kathmandu</h2>
+        <p>We are the best!</p>
+      </div>
+    </section>
+  </main>
+    
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="copyright">&copy; 2025 REDLINE.<br> All rights reserved.</p>
+                
+    
+                <ul class="footer-nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="/Pages/product.html">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                  </ul>
+    
+                <!-- Center: Our Store -->
+                <div class="footer-content-vertical">
+                    <h2 class="footer-title" style="font-family:Orbitron;">RedLineX</h2>
+                    <p class="footer-info"><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
+                    <p class="footer-info"><i class="fa-solid fa-envelope"></i> redline@email.com</p>
+                  </div>
+    
+                  <div class="follow-us">
+                    <p>Follow Us</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+        
+                    </div>
+                </div>
+            </div>
+            
+        </footer>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDLINE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'poppins';
+        }
+        /* header and navbar */
+        .header {
+            position: fixed;
+            width: 100%;
+            background-color: #FFE4C4;
+            padding: 20px 50px;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+        
+        .logo a {
+            font-size: 35px; 
+            color: black; 
+            text-decoration: none; 
+            font-family: 'Orbitron';
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            font-family: poppins;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            position: relative;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: -5px; 
+            width: 100%; 
+            height: 2px; 
+            background: black; 
+            transform: scaleX(0); 
+            transition: transform 0.3s ease; 
+        }
+        
+        .nav-links a:hover::after {
+            transform: scaleX(1); 
+        }
+         /* search  */
+        .search-container {
+            display: flex; 
+        }
+        
+        .search-input {
+            padding: 10px;
+            border: 1px solid #ccc; 
+            border-radius: 5px 0 0 5px; 
+            width: 100px; 
+            height: 20px;
+        }
+        
+        .search-button {
+            padding: 5px 5px;
+            border: none; 
+            background-color: #A0522D; 
+            color: white; 
+            border-radius: 0 5px 5px 0; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        }
+        
+        .search-button:hover {
+            background-color: #d18a00; 
+        }
+
+        /* cart   */
+
+        .cart {
+            background-color: transparent;
+            color:black;
+            border: 8px  grey;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cart:hover {
+            background-color: lightslategray; 
+        }
+
+
+
+
+
+        /* login  */
+        
+        
+        .login-button {
+            background-color: transparent; 
+            color: black; 
+            border: 3px round grey; 
+            border-radius: 20px; 
+            padding: 5px 5px; 
+            font-size: 15px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
+        
+        
+        
+        .login-button:hover {
+            background-color: lightslategray; 
+        }
+
+        
+        
+        
+        main {
+            padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 81px;
+        }
+
+        /* banner */
+        .banner{
+            position: relative;
+            margin-bottom: 70px;
+        }
+        .banner img {
+            width: 100%;
+            height: 400px; 
+           
+            object-fit: cover; 
+            margin: 0 auto; 
+        }
+        /* shop now */
+
+        .shop-now-btn {
+            position: absolute; 
+            bottom: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px 20px; 
+            background-color: #FFE4C4; 
+            color: black; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-size: 18px; 
+            transition: background-color 0.3s; 
+        }
+        
+        .shop-now-btn:hover {
+            background-color: gray; 
+        }
+
+        /* About Products */
+        .product-info {
+            display: flex; 
+            margin: 20px; 
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background-color: #f9f9f9; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            width: 373px; 
+            height: 350px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            overflow: hidden; 
+            text-align: center; 
+            margin: 40px;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            padding: 15px; 
+            transition: box-shadow 0.3s ease-in-out;
+   
+        }
+        .info-box:hover {
+            box-shadow: 0 8px 15px rgba(48, 192, 48, 0.4); 
+            
+            transform: translateY(-2px); 
+        }
+
+        .product-image {
+            width: 100%; 
+            height: 200px; 
+        }
+
+        .btn {
+            display: inline-block; 
+            padding: 10px 10px; 
+            background-color: #808080; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+        }
+        .btn:hover {
+            background-color: darkgreen; 
+        }
+
+        /* Product card*/
+        .prod {
+            display: flex; 
+            margin: 20px; 
+            flex-wrap: wrap;
+            
+            
+        }
+        .box-container{
+            background-color: #f9f9f9; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            width: 373px; 
+            height: 350px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            overflow: hidden; 
+            text-align: center; 
+            margin: 40px;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            padding: 15px; 
+            transition: box-shadow 0.3s ease-in-out;
+   
+        }
+
+        .box-container:hover {
+            box-shadow: 0 8px 15px rgba(48, 192, 48, 0.4); 
+            
+            transform: translateY(-2px); 
+        }
+
+
+        /*  Footer */
+        
+        .footer {
+            background-color: #444; 
+            color: #fff; 
+            padding: 20px 50px; 
+            width: 100%; 
+        }
+        
+        .footer-content {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .copyright {
+            margin: 0; 
+        }
+
+        /* nav links in footer */
+
+        .footer-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+          }
+          
+          .footer-nav-links li {
+            margin: 0 15px;
+          }
+          
+          .footer-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+          }
+          
+          .footer-nav-links a:hover {
+            color: lightgreen;
+          }
+        /* follow us */
+        .follow-us {
+            text-align: right; 
+        }
+        
+        .follow-us p {
+            margin: 0; 
+            font-weight: bold; 
+            margin-bottom: 20px;
+        }
+        
+        .socials {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: white; 
+            padding: 5px;
+            
+            transition: background-color 0.3s ease; 
+        }
+        
+        .social-icon:hover {
+            background-color: lightgreen;
+        }
+    </style>
+    
+    
+    <script></script>
+</head>
+<body>
+    <!--Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo"><a href="#">RedLineX</a></div>
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="/Pages/product.html" target="_blank">PRODUCTS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="/Pages/indexabout.html" target="_blank">ABOUT US</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
+                <li class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button">Search</button>
+                </li>
+                <li><button class="cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button></li>
+               <li><button class="login-button">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i> 
+                </button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <!--Banner-->
+
+        <div class="banner">
+            
+            <img src="/Images/banner.png" alt="banner" width="100%" height="400px">
+            <a href="#products" class="shop-now-btn">SHOP NOW</a>
+        </div>
+
+        <!--Banner-->
+
+        <!--About Products-->
+        <section class="product" id="product">
+            <h1 class="heading"><span style="color:grey;font-size: 30px; margin-right:10px">ABOUT</span><span style="color:green; font-size:30px">PRODUCTS</span></h1>
+        </section>
+        <div class="product-info">
+            <div class="info-box">
+                <img src="/Images/engine.jpg" alt="V10 Engine" class="product-image">
+                <h3>Engines</h3>
+                <p>Engines and pistons are available here.
+                </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="info-box">
+                <img src="/Images/filter.jpg" alt="filters" class="product-image">
+                <h3>Filters</h3>
+                <p>All kind of filters are available.
+                </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="info-box">
+                <img src="/Images/exhaust.jpeg" alt="exhaust" class="product-image">
+                <h3>After Market Parts</h3>
+                <p> Performance parts are available.
+                </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+         <section class="featured-products">
+            <h1 class="heading">
+                <span style="text-align:center;color: red; font-size:30px; margin-right:10px;">FEATURED</span><span style="color:green;font-size:30px;">PRODUCTS</span>
+            </h1>
+            <div class="prod">
+                <div class="box-container">
+                    <img src="/Images/airfilter.jpg" alt="oil filter" class="product-image" >
+                    <h4>Oil Filter</h4>
+                    <p>Oil filter for Mazda rx7</p>
+                    <a href="#" class="btn">Buy Now</a>
+                </div>
+
+                <div class="box-container">
+                    <img src="/Images/bodykit.jpg" alt="bodykit" class="product-image">
+                    <h4>Body Kit</h4>
+                    <p>Exclusive Veilside bodykit</p>
+                    <a href="#" class="btn">Buy Now</a>
+                </div>
+
+                <div class="box-container">
+                    <img src="/Images/brakepad.jpg" alt="brakepad" class="product-image">
+                    <h4>Brakepad</h4>
+                    <p>High quality ceramic brake pad</p>
+                    <a href="#" class="btn">Buy Now</a>
+                </div>
+            </div>
+            
+         </section>
+
+
+        
+
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 REDLINE.<br> All rights reserved.</p>
+            
+
+            <ul class="footer-nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="/Pages/product.html">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+              </ul>
+
+            <!-- Center: Our Store -->
+            <div class="footer-content-vertical">
+                <h2 class="footer-title" style="font-family:Orbitron;">RedLineX</h2>
+                <p class="footer-info"><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
+                <p class="footer-info"><i class="fa-solid fa-envelope"></i> redline@email.com</p>
+              </div>
+
+              <div class="follow-us">
+                <p>Follow Us</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+    
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'poppins';
+        }
+        /* header and navbar */
+        .header {
+            position: fixed;
+            width: 100%;
+            background-color: #FFE4C4;
+            padding: 20px 50px;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+        
+        .logo a {
+            font-size: 35px; 
+            color: black; 
+            text-decoration: none; 
+            font-family: 'Orbitron';
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            font-family: poppins;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            position: relative;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: -5px; 
+            width: 100%; 
+            height: 2px; 
+            background: black; 
+            transform: scaleX(0); 
+            transition: transform 0.3s ease; 
+        }
+        
+        .nav-links a:hover::after {
+            transform: scaleX(1); 
+        }
+         /* search  */
+        .search-container {
+            display: flex; 
+        }
+        
+        .search-input {
+            padding: 10px;
+            border: 1px solid #ccc; 
+            border-radius: 5px 0 0 5px; 
+            width: 100px; 
+            height: 20px;
+        }
+        
+        .search-button {
+            padding: 5px 5px;
+            border: none; 
+            background-color: #A0522D; 
+            color: white; 
+            border-radius: 0 5px 5px 0; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        }
+        
+        .search-button:hover {
+            background-color: #d18a00; 
+        }
+
+        /* cart   */
+
+        .cart {
+            background-color: transparent;
+            color:black;
+            border: 8px  grey;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cart:hover {
+            background-color: lightslategray; 
+        }
+
+
+
+
+
+        /* login  */
+        
+        
+        .login-button {
+            background-color: transparent; 
+            color: black; 
+            border: 3px round grey; 
+            border-radius: 20px; 
+            padding: 5px 5px; 
+            font-size: 15px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
+        
+        
+        
+        .login-button:hover {
+            background-color: lightslategray; 
+        }
+
+        
+        
+        
+        main {
+            padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 81px;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #333;
+          }
+      
+          .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+      
+          .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: 0.3s;
+          }
+      
+          .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+      
+          .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+          }
+      
+          .card-content {
+            padding: 15px;
+          }
+      
+          .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+          }
+      
+          .card-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+          }
+      
+          .card-price {
+            font-size: 16px;
+            color: #e60000;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+      
+          .btn-group {
+            display: flex;
+            gap: 10px;
+          }
+      
+          .btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+      
+          .add-btn {
+            background-color: #007bff;
+            color: white;
+          }
+      
+          .buy-btn {
+            background-color: #28a745;
+            color: white;
+          }
+      
+          .add-btn:hover {
+            background-color: #0056b3;
+          }
+      
+          .buy-btn:hover {
+            background-color: #1e7e34;
+          }
+
+       
+
+
+        /*  Footer */
+        
+        .footer {
+            background-color: #444; 
+            color: #fff; 
+            padding: 20px 50px; 
+            width: 100%; 
+        }
+        
+        .footer-content {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .copyright {
+            margin: 0; 
+        }
+
+        /* nav links in footer */
+
+        .footer-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+          }
+          
+          .footer-nav-links li {
+            margin: 0 15px;
+          }
+          
+          .footer-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+          }
+          
+          .footer-nav-links a:hover {
+            color: lightgreen;
+          }
+        /* follow us */
+        .follow-us {
+            text-align: right; 
+        }
+        
+        .follow-us p {
+            margin: 0; 
+            font-weight: bold; 
+            margin-bottom: 20px;
+        }
+        
+        .socials {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: white; 
+            padding: 5px;
+            
+            transition: background-color 0.3s ease; 
+        }
+        
+        .social-icon:hover {
+            background-color: lightgreen;
+        }
+    </style>
+    
+    
+    <script></script>
+</head>
+<body>
+    <!--Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo"><a href="#">RedLineX</a></div>
+            <ul class="nav-links">
+                <li><a href="/Pages/index.html">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#aboutus">ABOUT US</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
+                <li class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button">Search</button>
+                </li>
+                <li><button class="cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button></li>
+               <li><button class="login-button">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i> 
+                </button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Car Spare Parts</h1>
+
+        <div class="product-grid">
+      
+          <!-- Product Card 1 -->
+          <div class="card">
+            <img src="/Images/brakepad.jpg" alt="Brake Pads">
+            <div class="card-content">
+              <div class="card-title">Brake Pads</div>
+              <div class="card-desc">Fits Toyota Corolla 2016–2020</div>
+              <div class="card-price">RS 4999</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 2 -->
+          <div class="card">
+            <img src="/Images/filter.jpg" alt="Air Filter">
+            <div class="card-content">
+              <div class="card-title">Air Filter</div>
+              <div class="card-desc">Fits Hyundai i20 2018+</div>
+              <div class="card-price">RS 2300</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 3 -->
+          <div class="card">
+            <img src="/Images/headlights.jpeg" alt="Headlight Set">
+            <div class="card-content">
+              <div class="card-title">Headlight Set</div>
+              <div class="card-desc">Universal Fit for SUVs</div>
+              <div class="card-price">RS 9999</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 4 -->
+          <div class="card">
+            <img src="/Images/Lbodykit.jpg" alt="Old cars body kit">
+            <div class="card-content">
+              <div class="card-title">Body Kit</div>
+              <div class="card-desc">Fits Suzuki Swift 2014–2019</div>
+              <div class="card-price">RS 11000</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 5 -->
+          <div class="card">
+            <img src="/Images/airfilter.jpg" alt="Oil Filter">
+            <div class="card-content">
+              <div class="card-title">Oil Filter</div>
+              <div class="card-desc">Fits Honda City 2016–2022</div>
+              <div class="card-price">RS 1200</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 6 -->
+          <div class="card">
+            <img src="/Images/sparkplug.jpeg" alt="Spark Plugs">
+            <div class="card-content">
+              <div class="card-title">Spark Plugs</div>
+              <div class="card-desc">Set of 4 - NGK Compatible</div>
+              <div class="card-price">RS 750</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 7 -->
+          <div class="card">
+            <img src="/Images/radiator.jpeg" alt="Radiator">
+            <div class="card-content">
+              <div class="card-title">Radiator</div>
+              <div class="card-desc">For Nissan X-Trail 2013+</div>
+              <div class="card-price">RS 16500</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 8 -->
+          <div class="card">
+            <img src="/Images/ecu.jpg" alt="ECU">
+            <div class="card-content">
+              <div class="card-title">Powertronic ECU</div>
+              <div class="card-desc">Performance enhancing ecu for NS 200, Duke 200</div>
+              <div class="card-price">RS 6500</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Product Card 9 -->
+          <div class="card">
+            <img src="/Images/indicators.jpeg" alt="indicators">
+            <div class="card-content">
+              <div class="card-title">Indicators</div>
+              <div class="card-desc">Indicators for Duke, NS, Fzs</div>
+              <div class="card-price">RS 650</div>
+              <div class="btn-group">
+                <button class="btn add-btn">Add to Cart</button>
+                <button class="btn buy-btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+
+
+  <!-- Card 10 -->
+  <div class="card">
+    <img src="/Images/rotary engine.png" alt="rotary engine">
+    <div class="card-content">
+      <div class="card-title">Rotary Engine</div>
+      <div class="card-desc">20db rotary engine that fits in 1997 Mazda RX7</div>
+      <div class="card-price">RS 45000</div>
+      <div class="btn-group">
+        <button class="btn add-btn">Add to Cart</button>
+        <button class="btn buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 11 -->
+  <div class="card">
+    <img src="/Images/clutch plates.jpg" alt="clutch plate">
+    <div class="card-content">
+      <div class="card-title">Clutch Plate</div>
+      <div class="card-desc">Clutchplate at very affordable price. will last till 50k kms</div>
+      <div class="card-price">RS 5500</div>
+      <div class="btn-group">
+        <button class="btn add-btn">Add to Cart</button>
+        <button class="btn buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 12 -->
+  <div class="card">
+    <img src="/Images/foglight.jpeg" alt="Fog Lights">
+    <div class="card-content">
+      <div class="card-title">Fog Lights</div>
+      <div class="card-desc">LED Universal Set - Waterproof for Bajaj Dominar 400/250</div>
+      <div class="card-price">RS 2500</div>
+      <div class="btn-group">
+        <button class="btn add-btn">Add to Cart</button>
+        <button class="btn buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+      
+ </div>
+
+       
+
+
+        
+
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 REDLINE.<br> All rights reserved.</p>
+            
+
+            <ul class="footer-nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+              </ul>
+
+            <!-- Center: Our Store -->
+            <div class="footer-content-vertical">
+                <h2 class="footer-title" style="font-family:Orbitron;">RedLineX</h2>
+                <p class="footer-info"><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
+                <p class="footer-info"><i class="fa-solid fa-envelope"></i> redline@email.com</p>
+              </div>
+
+              <div class="follow-us">
+                <p>Follow Us</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+    
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
